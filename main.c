@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <string.h>
-
+// does any one can just throw code 
 void fun(FILE *p, int r, int x , char namee[30], char *name[20], int *Quantity, long double *price);
 struct Item
 {
