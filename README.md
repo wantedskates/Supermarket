@@ -1,1 +1,9 @@
 # Supermarket
+
+Functions :- 
+1. makeCustomerDataSet() :- 
+-this creates a table the stores the data of customers 
+-the distance between each number in the column of indecies in the file is 63 byte 
+- the distance betwen each | in the customer name blank is 16 , the positions of the first pair of ‘\’ is in (38, 54) and the 
+consecutive pairs are in positions (38 + 63 , 54 + 63). 
+- the distance between each consecutive characters within rows is 63, for example the distance between 1 and 2 is 63  
