@@ -3,6 +3,8 @@
 #include <string.h>
 // does any one can just throw code 
 // this comment is not going to be pushed to the main branch unless the admin approve it 
+// this comment is new and it is written by collaborator 
+
 
 void fun(FILE *p, int r, int x , char namee[30], char *name[20], int *Quantity, long double *price);
 struct Item
