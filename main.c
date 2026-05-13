@@ -3,9 +3,8 @@
 #include <string.h>
 
 
-void fun(FILE *p, int r, int x , char namee[30], char *name[20], int *Quantity, long double *price);
-// this function jumps into the dataset of inventory.txt and do grap an item name, its price, its quantity and
-// return it back to us so to do with this stuff other logic after the function
+void getItemData(FILE *p, int r, int x , char namee[30], char *name[20], int *Quantity, long double *price);
+
 struct Item
 {
   long double price;
@@ -27,13 +26,13 @@ struct Customer
 
 
 
-}; // this is made because every single customer has his own profile , hence we need a file to store the data of customers
+}; 
 void whichMode(char d,  bool *customerMode , bool *storageMode, bool *cashierMode);
 
-; // this function jump into customer.txt and the name of the customer
-void makeInventory();// this creates the inventory.txt for only one time at the beginning of the program
-void makeCustomerDataSet( FILE *p , int row); // this creates an empty table of customers to be filled through the customer logic : customer.txt
-void displayInventory(); // this draws a table in the screen
+
+void makeInventory();
+void makeCustomerDataSet( FILE *p , int row);
+void displayMenu();
 void jumpAddName( char name[20] , int NO , char fileName[20]);
 
 
@@ -75,7 +74,7 @@ int main()
 
      FILE *ptrCustomerDataSet = fopen("customer.txt" , "w");
      makeCustomerDataSet(ptrCustomerDataSet, numberOfCustomers);
-     fclose(ptrCustomerDataSet); 
+     fclose(ptrCustomerDataSet);
 
      // part 2: take each customer details and store it in the customer.txt properly
      for (int T= 1; T<= numberOfCustomers; T++)
@@ -92,7 +91,7 @@ int main()
 
        // part 2a: jump into the customer.txt and store the name of the customer there
 
-       jumpAddName(customer.name,T,"customer.txt"); 
+       jumpAddName(customer.name,T,"customer.txt");
 
 
 
@@ -105,7 +104,7 @@ int main()
 
 
        printf("\n");
-       displayInventory();
+       displayMenu();
        printf("\n");
        // how many product = n
        int distinctItems;
@@ -213,7 +212,7 @@ void makeInventory()
 
 };
 
-void fun(FILE *p, int row, int x , char namee[30] , char *name[20], int *Quantity, long double *price )
+void getItemData(FILE *p, int row, int x , char namee[30] , char *name[20], int *Quantity, long double *price )
 {
 
 };
