@@ -25,6 +25,14 @@ positions of '|'  pairs in row x are in positions (38 + x * 63 , 54 +  x * 63).
 takes addresses within the logic 
 - it is designed specifically for inventory.txt
 
+5. makeInventory() :-
+- creates the inventory.txt 
+
+6. displayMenu() :- 
+- draw to the customer in the screen the names and prices of items
+- it jump into inventory.txt and abstracts the names and prices only 
+- because the customer is only interested in knowing the names and prices 
+
 
 
 
