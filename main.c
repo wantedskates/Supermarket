@@ -1,13 +1,11 @@
 #include <stdio.h>
 #include <stdbool.h>
 #include <string.h>
-// does any one can just throw code 
-// this comment is not going to be pushed to the main branch unless the admin approve it 
-// this comment is new and it is written by collaborator 
-// if this comment was delayed , this mean that this stuff had worked 
-  // what should i do now !
+
 
 void fun(FILE *p, int r, int x , char namee[30], char *name[20], int *Quantity, long double *price);
+// this function jumps into the dataset of inventory.txt and do grap an item name, its price, its quantity and
+// return it back to us so to do with this stuff other logic after the function
 struct Item
 {
   long double price;
@@ -20,7 +18,7 @@ struct Customer
 {
 
   char name[20];
-  long long ID;
+  int ID;
   int money;
   struct Cart
   {
@@ -30,16 +28,23 @@ struct Customer
 
 
 }; // this is made because every single customer has his own profile , hence we need a file to store the data of customers
-void fillData(); // this creates the inventory.txt for only one time at the beginning of the program
 void whichMode(char d,  bool *customerMode , bool *storageMode, bool *cashierMode);
-void displayMenu(); // this draws a table in the screen
-void makeTable(); // this creates a table in the inventory.txt
+
+; // this function jump into customer.txt and the name of the customer
+void makeInventory();// this creates the inventory.txt for only one time at the beginning of the program
+void makeCustomerDataSet( FILE *p , int row); // this creates an empty table of customers to be filled through the customer logic : customer.txt
+void displayInventory(); // this draws a table in the screen
+void jumpAddName( char name[20] , int NO , char fileName[20]);
 
 
 int main()
 {
 
-  fillData();
+
+  makeInventory();
+  // Before making the customer dataset, how much do you want its capacity?
+
+
   printf("Enter s to manage the storage , c if you are a customer,  r for managing the register\n");
   char d ;
 
@@ -61,13 +66,16 @@ int main()
    if (customerMode)
   {
      // part 1 : how many customers are there ?
-
      int numberOfCustomers;
-
-     while (scanf("%i" , &numberOfCustomers) && (!((numberOfCustomers >=1)  && (numberOfCustomers<=10))) )
+     printf("How many customers are there: ");
+     while (scanf("%i" , &numberOfCustomers) && (!((numberOfCustomers >=1)  && (numberOfCustomers<=100))) )
      {
        printf("Invalid number, please try again");
      }
+
+     FILE *ptrCustomerDataSet = fopen("customer.txt" , "w");
+     makeCustomerDataSet(ptrCustomerDataSet, numberOfCustomers);
+     fclose(ptrCustomerDataSet); 
 
      // part 2: take each customer details and store it in the customer.txt properly
      for (int T= 1; T<= numberOfCustomers; T++)
@@ -77,18 +85,27 @@ int main()
 
 
 
-       printf("Hello customer %i , please enter your details bellow\n"
+       printf("Hello customer %i , please enter your name: \n"
               "Name: " , T);
        scanf("%s" , customer.name);
-       printf("\nID: ");
-       scanf("%llu", &customer.ID);
+       // no customer name is allowed to be more than 16
+
+       // part 2a: jump into the customer.txt and store the name of the customer there
+
+       jumpAddName(customer.name,T,"customer.txt"); 
+
+
+
+
+
+
 
        //part 3 : the customer starts picking items and puts them in his cart
        // we assume that the cart can take no more than 10 units
 
 
        printf("\n");
-       displayMenu();
+       displayInventory();
        printf("\n");
        // how many product = n
        int distinctItems;
@@ -124,7 +141,10 @@ int main()
          char name[30];
          struct Item item;
 
-         fun(,20,x,"inventory.txt", &item.name, &item.Quantity, &item.price);
+         //fun(,20,x,"inventory.txt", &item.name, &item.Quantity, &item.price);
+         // this part of the code is supposed to jump into the inventory.txt, grap some data and get it back
+         // so we can do other logic with it, because function only return one thing at a time, this
+         // jumping function work by call by reference
 
 
 
@@ -168,18 +188,6 @@ int main()
   {
 
   };
-
-
-
-
-
-
-
-
-
-
-
-
 }
 void whichMode(char d,  bool *customerMode , bool *storageMode, bool *cashierMode)
 {
@@ -200,7 +208,7 @@ void whichMode(char d,  bool *customerMode , bool *storageMode, bool *cashierMod
 
 
 };
-void fillData()
+void makeInventory()
 {
 
 };
@@ -209,5 +217,110 @@ void fun(FILE *p, int row, int x , char namee[30] , char *name[20], int *Quantit
 {
 
 };
+int nDigits (int a)
+{
+  int q,b=0;
+  do
+  {
+    q = a / 10;
+    a = q;
+    b++;
 
 
+  } while (q!=0);
+
+  return b;
+};
+void makeCustomerDataSet(FILE *p , int row )
+{
+
+
+  row++;
+  fprintf(p,"\n");
+  for (int i=0 , NO =i; i<row; i++ , NO++)
+  {
+
+    for (int j=0 ; j<3; j++)
+    {
+      fprintf(p,"----------");
+    }
+    fprintf(p,"\n");
+    if (i==0)
+    {
+      for (int j=1; j<=3; j++)
+      {
+        if (j==1)
+        {
+          fprintf(p ,"|  NO ");
+        }
+        else if (j==2)
+        {
+          fprintf(p, "|     Name      ");
+        }
+        else if (j==3)
+        {
+          fprintf(p, "| Spend |");
+        }
+      }
+    }
+    else
+
+      for (int j=1; j<=3; j++ )
+      {
+        if (j==1)
+        {
+          if (nDigits(NO) == 1)
+          {
+            fprintf(p,"|  %i  ",NO);
+          }
+          else if (nDigits(NO) == 2)
+          {
+            fprintf(p,"|  %i ", NO);
+          }
+          else if (nDigits(NO) == 3)
+          {
+            fprintf(p,"|  %i",NO);
+          }
+
+        }
+        else if (j==2)
+        {
+          fprintf(p,"|               ");
+        }
+
+        else if (j==3)
+        {
+          fprintf(p,"|       |");
+        }
+
+
+      }
+    if (i== (row-1))
+    {
+      fprintf(p,"\n");
+      for (int j=0; j<3; j++)
+      {
+        fprintf(p,"----------");
+      }
+
+
+    }
+    fprintf(p,"\n");
+  }
+
+
+
+};
+void jumpAddName( char name[20] , int NO , char fileName[20])
+{
+  int k = 63;
+  k *=NO;
+
+  FILE *p = fopen( fileName , "r+");
+  fseek(p,38 + k + 1,SEEK_SET);
+  fprintf(p, "%s" , name);
+  fseek(p,38 +63 +1,SEEK_SET);
+  fclose(p);
+
+
+};
