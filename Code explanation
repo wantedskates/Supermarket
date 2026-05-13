@@ -1,0 +1,32 @@
+**** a major idea in this code is the idea of jumping into a file and doing some stuff and then returning back! ****
+
+
+Functions :- 
+1. makeCustomerDataSet() :- 
+- this creates a table the stores the data of customers and the money that each customer had spend 
+- it makes only three columns , NO, Name , Money spend
+- if a customer name is more than 16 character, the table will be disrupted 
+- the distance between each number in the column of indecies in the file is 63 byte 
+- the distance betwen each '|' in the customer name blank is 16 , the positions of the first pair of ‘|’ is in (38, 54) and the 
+positions of '|'  pairs in row x are in positions (38 + x * 63 , 54 +  x * 63). 
+- the distance between each consecutive characters within rows is 63, for example the distance between 1 and 2 is 63  
+
+2. jumpAddName() :- 
+- this function is designed specifically for customer.txt file
+- given the index of the customer, it add his name in the proper box
+- if given a name that it's length is more than 16, it will disrupt the customer.txt
+
+3. drawMenu()  :- 
+- this function take the inventory.txt and prints it in the terminal 
+
+4. getItemData()  :- 
+- this function jump into the inventory.txt and grap the price, name, quantity and return it back 
+- because no function can return more than on input at once , it is defined with parameters of type pointer and
+takes addresses within the logic 
+- it is designed specifically for inventory.txt
+
+
+
+
+
+
