@@ -87,7 +87,33 @@ int main()
        printf("Hello customer %i , please enter your name: \n"
               "Name: " , T);
        scanf("%s" , customer.name);
-       // no customer name is allowed to be more than 16
+       
+       
+       // taking the name of the customer 
+        // no customer name is allowed to be more than 16
+       char cleaner;
+
+       long long l;
+  
+       for (;scanf("%19s" , customer.name);)
+  {
+    l = strlen(name);
+    if (!((l>=1) && (l<=16)))
+    {
+      printf("Invalid name length please try again\n");
+
+      while ((cleaner = getchar()) != '\n'  && cleaner != EOF); // the purpose of this line is to clean the buffer 
+    }
+    else
+    {
+    
+      while ((cleaner = getchar()) != '\n' && cleaner != EOF);
+      break;
+    }
+
+
+       
+      
 
        // part 2a: jump into the customer.txt and store the name of the customer there
 
