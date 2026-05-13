@@ -33,6 +33,8 @@ takes addresses within the logic
 - it jump into inventory.txt and abstracts the names and prices only 
 - because the customer is only interested in knowing the names and prices 
 
+7. makeInventory() :- 
+- our supermarket departments are : Beverages , Meat, Fruit, Vegetables, Bakery, Dairy, Snacks 
 
 
 
