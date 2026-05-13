@@ -40,8 +40,9 @@ int main()
 {
 
 
+
   makeInventory();
-  // Before making the customer dataset, how much do you want its capacity?
+ 
 
 
   printf("Enter s to manage the storage , c if you are a customer,  r for managing the register\n");
@@ -59,12 +60,11 @@ int main()
   whichMode(d,  &customerMode, &storageMode, &cashierMode);
 
 
-  // the whole program is running within an infinite loop and this loop n times which n
-  // is the number of customers
-  // we assume that in our customer.txt we only can store up to 10 customers as maximum
+ 
    if (customerMode)
   {
      // part 1 : how many customers are there ?
+    // the purpose of this question is to determine how many rows are there in the customer.txt
      int numberOfCustomers;
      printf("How many customers are there: ");
      while (scanf("%i" , &numberOfCustomers) && (!((numberOfCustomers >=1)  && (numberOfCustomers<=100))) )
@@ -76,7 +76,7 @@ int main()
      makeCustomerDataSet(ptrCustomerDataSet, numberOfCustomers);
      fclose(ptrCustomerDataSet);
 
-     // part 2: take each customer details and store it in the customer.txt properly
+     // part 2: do all the rest logic within each iteration of the bellow loop for each customer independently
      for (int T= 1; T<= numberOfCustomers; T++)
      {
        struct Customer customer;
@@ -89,7 +89,7 @@ int main()
        scanf("%s" , customer.name);
        
        
-       // taking the name of the customer 
+       // part 2a:  taking the name of the customer and adding it to the customer.txt properly
         // no customer name is allowed to be more than 16
        char cleaner;
 
@@ -112,26 +112,34 @@ int main()
     }
 
 
+    jumpAddName(customer.name,T,"customer.txt");
+
+  // part 3a : what are the departments that the customer is interested in ?
+    // when displaying the menu, the customer might not be interested in all
+       // departments in the inventory, so frist discover which department he is interested in. 
+    // the purpose of this question is to just determine which part from the inventory.txt will be printed with displayMenu(); 
+       // Beverages or Meat or Bakery or Snacks or Fruit or Vegetables or Dairy
+
+
+
+
+
+
+        //part 2b: the customer starts picking items and puts them in his cart
+       // we assume that the cart can take no more than 10 items
        
-      
 
-       // part 2a: jump into the customer.txt and store the name of the customer there
+    
 
-       jumpAddName(customer.name,T,"customer.txt");
-
-
-
-
-
-
-
-       //part 3 : the customer starts picking items and puts them in his cart
-       // we assume that the cart can take no more than 10 units
-
+     
 
        printf("\n");
        displayMenu();
        printf("\n");
+
+
+
+    
        // how many product = n
        int distinctItems;
        printf("How many distinct items you want to buy: ");
@@ -176,7 +184,7 @@ int main()
 
 
          //what will happen after we get the price and quantity and name?
-         item.Quantity = 3330;
+         
 
 
 
