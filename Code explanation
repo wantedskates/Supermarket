@@ -56,6 +56,8 @@ takes addresses within the logic
 addItem(); 
 removeItem();
 check_if_item_finished(); 
+increaseItem(); 
+decreaseItem(); 
 addDepartment(); 
 changeItemPrice(); 
 changeItemAmount(); 
