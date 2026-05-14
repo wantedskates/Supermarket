@@ -30,7 +30,7 @@ struct Customer
 void whichMode(char d,  bool *customerMode , bool *storageMode, bool *cashierMode);
 
 
-void makeInventory();
+void makeInventory(FILE *p );
 void makeCustomerDataSet( FILE *p , int row);
 void displayMenu();
 void jumpAddName( char name[20] , int NO , char fileName[20]);
@@ -354,6 +354,236 @@ void jumpAddName( char name[20] , int NO , char fileName[20])
   fprintf(p, "%s" , name);
   fseek(p,38 +63 +1,SEEK_SET);
   fclose(p);
+
+
+};
+void makeInventory(FILE *p)
+{
+
+
+
+  int row=26; // this makes till NO 25
+  fprintf(p,"\n");
+  for (int i=0 , NO =i; i<row; i++ , NO++)
+  {
+
+
+    for (int j=0 ; j<5; j++)
+    {
+      if ((j==0) && (i >1) && (i!=6) && (i!=11) && (i!=16) && (i!=21))
+      {fprintf(p, "          ");}
+
+      else if (i==6)
+      {
+        fprintf(p,"----------");
+      }
+      else if (i==11)
+      {
+        fprintf(p,"----------");
+      }
+      else if (i==16)
+      {
+        fprintf(p,"----------");
+      }
+      else if (i==21)
+      {
+        fprintf(p,"----------");
+      }
+      else
+      {
+        fprintf(p,"----------");
+      }
+    }
+
+
+    fprintf(p,"\n");
+    if (i==0)
+    {
+      for (int j=1; j<=5; j++)
+      {
+        if (j==1)
+        {
+          fprintf(p, "|  Kind   ");
+        }
+        if (j==2)
+        {
+          fprintf(p ,"|  NO ");
+        }
+        else if (j==3)
+        {
+          fprintf(p, "|     Name      ");
+        }
+        else if (j==4)
+        {
+          fprintf(p, "| Price ");
+        }
+        else if (j==5)
+        {
+          fprintf(p, "| Amount |");
+        }
+      }
+    }
+    else
+
+      for (int j=1; j<=5; j++ )
+      {
+        if (j==1)
+        {
+          if ((j==1) && (i==3))
+          {
+            fprintf(p,"| Drinks  ");
+          }
+          else if ((j==1) && (i==8))
+          {
+            fprintf(p,"| Bakery  ");
+          }
+          else if ((j==1) && (i==13))
+          {
+            fprintf(p,"|  Diary  ");
+          }
+          else if ((j==1) && (i==18))
+          {
+            fprintf(p,"|  Meat   ");
+          }
+          else if ((j==1) && (i==23))
+          {
+            fprintf(p,"| Snacks  ");
+          }
+          else if (j==1)
+          {
+            fprintf(p,"|         ");
+          }
+        }
+
+        else if (j==2)
+        {
+          if (nDigits(NO) == 1)
+          {
+            fprintf(p,"|  %i  ",NO);
+          }
+          else if (nDigits(NO) == 2)
+          {
+            fprintf(p,"|  %i ", NO);
+          }
+          else if (nDigits(NO) == 3)
+          {
+            fprintf(p,"|  %i",NO);
+          }
+
+        }
+        else if (j==3)
+        {
+          // from 1 to 5 Drinks
+          if (i==1)
+          {
+            fprintf(p,"| Pepsi         ");
+          }
+          else if (i==2)
+          {
+            fprintf(p,"| Water         ");
+          }
+          else if (i==3)
+          {
+            fprintf(p,"| Fruit Juice   ");
+          }
+          else if (i==4)
+          {
+            fprintf(p,"| Miranda       ");
+          } else if (i==5)
+          {
+            fprintf(p,"| Roman         ");
+          } else if (i==6)
+          {
+            fprintf(p,"| Croissant     ");
+          } else if (i==7)
+          {
+            fprintf(p,"| Muffin        ");
+
+          } else if (i==8)
+          {
+            fprintf(p,"| White toast   ");
+          } else if (i==9)
+          {
+            fprintf(p,"| Cheesecake    ");
+          } else if (i==10)
+          {
+            fprintf(p,"| Fresh Bread   ");
+          } else if (i==11)
+          {
+            fprintf(p,"| Milk          ");
+          } else if (i==12)
+          {
+            fprintf(p,"| Yogurt        ");
+
+          } else if (i==13)
+          {
+            fprintf(p,"| White Cheese  ");
+          } else if (i==14)
+          {
+            fprintf(p,"| Butter        ");
+          } else if (i==15)
+          {
+            fprintf(p,"| Greek Yogurt  ");
+          } else if (i==16)
+          {
+            fprintf(p,"| Chicken       ");
+          } else if (i==17)
+          {
+            fprintf(p,"| Beef          ");
+          } else if (i==18)
+          {
+            fprintf(p,"| Turkey        ");
+          } else if (i==19)
+          {
+            fprintf(p,"| Sausages      ");
+          } else if (i==20)
+          {
+            fprintf(p,"| Kofta         ");
+          } else if (i==21)
+          {
+            fprintf(p,"| KitKat        ");
+          } else if (i==22)
+          {
+            fprintf(p,"| Lays          ");
+          } else if (i==23)
+          {
+            fprintf(p,"| Kinder Beuno  ");
+          } else if (i==24)
+          {
+            fprintf(p,"| Kinder Joy    ");
+          } else if (i==25)
+          {
+            fprintf(p,"| Indomee       ");
+          }
+
+
+        }
+
+        else if (j==4)
+        {
+          fprintf(p,"| 30    ");
+        }
+        else if (j==5)
+        {
+          fprintf(p, "| 50     |");
+        }
+
+
+      }
+    if (i== (row-1))
+    {
+      fprintf(p,"\n");
+      for (int j=0; j<5; j++)
+      {
+        fprintf(p,"----------");
+
+      }
+
+
+    }
+    fprintf(p,"\n");
+  }
+
 
 
 };
