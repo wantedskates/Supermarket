@@ -2,6 +2,10 @@
 
 
 Functions :- 
+
+
+***Customer logic :- 
+
 1. makeCustomerDataSet() :- 
 - this creates a table the stores the data of customers and the money that each customer had spend 
 - it makes only three columns , NO, Name , Money spend
@@ -11,13 +15,17 @@ Functions :-
 positions of '|'  pairs in row x are in positions (38 + x * 63 , 54 +  x * 63). 
 - the distance between each consecutive characters within rows is 63, for example the distance between 1 and 2 is 63  
 
-2. jumpAddName() :- 
+2. jumpAddName() deleteName() :- 
 - this function is designed specifically for customer.txt file
 - given the index of the customer, it add his name in the proper box
 - if given a name that it's length is more than 16, it will disrupt the customer.txt
 
-3. drawMenu()  :- 
+3. drawMenu() :- 
 - this function take the inventory.txt and prints it in the terminal 
+- draw to the customer in the screen the names and prices of items
+- it jump into inventory.txt and abstracts the names and prices only 
+- because the customer is only interested in knowing the names and prices 
+
 
 4. getItemData()  :- 
 - this function jump into the inventory.txt and grap the price, name, quantity and return it back 
@@ -25,16 +33,17 @@ positions of '|'  pairs in row x are in positions (38 + x * 63 , 54 +  x * 63).
 takes addresses within the logic 
 - it is designed specifically for inventory.txt
 
-5. makeInventory() :-
+
+
+*** Storage logic :- 
+
+
+
+1. makeInventory() :- 
 - creates the inventory.txt 
-
-6. displayMenu() :- 
-- draw to the customer in the screen the names and prices of items
-- it jump into inventory.txt and abstracts the names and prices only 
-- because the customer is only interested in knowing the names and prices 
-
-7. makeInventory() :- 
 - our supermarket departments are : Beverages , Meat, Fruit, Vegetables, Bakery, Dairy, Snacks 
+
+2. addItem(); removeItem(); check_if_item_finished(); 
 
 
 
