@@ -50,6 +50,7 @@ takes addresses within the logic
 - first occurence of NO = byte 167
 - width of each line = 51 byte 
 - distance between each first and second name, first and second amount , first and second price = 102 byte
+- can not work without nDigits(); which counts the digits of a given integer 
 
 2. Manipulating inventory.txt :- 
 addItem(); 
