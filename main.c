@@ -29,7 +29,7 @@ struct Customer
 }; 
 void whichMode(char d,  bool *customerMode , bool *storageMode, bool *cashierMode);
 
-
+int nDigits (int a);
 void makeInventory(FILE *p );
 void makeCustomerDataSet( FILE *p , int row);
 void displayMenu();
@@ -356,6 +356,20 @@ void jumpAddName( char name[20] , int NO , char fileName[20])
   fclose(p);
 
 
+};
+int nDigits (int a)
+{
+  int q,b=0;
+  do
+  {
+    q = a / 10;
+    a = q;
+    b++;
+
+
+  } while (q!=0);
+
+  return b;
 };
 void makeInventory(FILE *p)
 {
