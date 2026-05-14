@@ -375,10 +375,11 @@ void makeInventory(FILE *p)
 {
 
 
-
+  int y=0, x =0;
+  char arr[5] = {'D' , 'B' , 'I' , 'M' , 'S'};
   int row=26; // this makes till NO 25
   fprintf(p,"\n");
-  for (int i=0 , NO =i; i<row; i++ , NO++)
+  for (int i=0 , NO =0; i<row; i++ , NO++)
   {
 
 
@@ -453,11 +454,11 @@ void makeInventory(FILE *p)
           }
           else if ((j==1) && (i==13))
           {
-            fprintf(p,"|  Diary  ");
+            fprintf(p,"| Diary   ");
           }
           else if ((j==1) && (i==18))
           {
-            fprintf(p,"|  Meat   ");
+            fprintf(p,"| Meat    ");
           }
           else if ((j==1) && (i==23))
           {
@@ -471,18 +472,16 @@ void makeInventory(FILE *p)
 
         else if (j==2)
         {
-          if (nDigits(NO) == 1)
+
+           char c = arr[y];
+          fprintf(p,"|  %c%i ", c, NO);
+          x++;
+          if (x==5)
           {
-            fprintf(p,"|  %i  ",NO);
+            y++;
+            x=0;
           }
-          else if (nDigits(NO) == 2)
-          {
-            fprintf(p,"|  %i ", NO);
-          }
-          else if (nDigits(NO) == 3)
-          {
-            fprintf(p,"|  %i",NO);
-          }
+
 
         }
         else if (j==3)
@@ -596,7 +595,16 @@ void makeInventory(FILE *p)
 
     }
     fprintf(p,"\n");
+
+    if (NO ==5)
+    {
+      NO =0;
+    }
   }
+
+
+
+};
 
 
 
