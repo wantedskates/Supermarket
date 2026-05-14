@@ -38,8 +38,18 @@ takes addresses within the logic
 *** Storage logic :- 
 
 1. makeInventory() :- 
+
 - creates the inventory.txt 
+- right now it just make a primitive inventory.txt to pass college exam but in the future it will be more dynamic and complex
 - our supermarket departments are : Beverages , Meat, Fruit, Vegetables, Bakery, Dairy, Snacks 
+- Names of items are not allowed to be more than 16 
+- Amounts and Prices are not allowed to be values with more than 7 digits
+- in this inventory.txt , the first occurrence of name = byte 172
+- first occurrence of price = byte 188
+- first occurrence of amount = byte 196
+- first occurence of NO = byte 167
+- width of each line = 51 byte 
+- distance between each first and second name, first and second amount , first and second price = 102 byte
 
 2. Manipulating inventory.txt :- 
 addItem(); 
