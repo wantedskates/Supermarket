@@ -21,7 +21,7 @@ positions of '|'  pairs in row x are in positions (38 + x * 63 , 54 +  x * 63).
 - if given a name that it's length is more than 16, it will disrupt the customer.txt
 
 3. drawMenu() :- 
-- this function take the inventory.txt and prints it in the terminal 
+- this function take the inventory.txt and prints only the departments the customer is interested in to the terminal 
 - draw to the customer in the screen the names and prices of items
 - it jump into inventory.txt and abstracts the names and prices only 
 - because the customer is only interested in knowing the names and prices 
@@ -37,13 +37,45 @@ takes addresses within the logic
 
 *** Storage logic :- 
 
-
-
 1. makeInventory() :- 
 - creates the inventory.txt 
 - our supermarket departments are : Beverages , Meat, Fruit, Vegetables, Bakery, Dairy, Snacks 
 
-2. addItem(); removeItem(); check_if_item_finished(); 
+2. Manipulating inventory.txt :- 
+addItem(); 
+removeItem();
+check_if_item_finished(); 
+addDepartment(); 
+addItem_to_Department(); 
+changeItemPrice(); 
+changeItemAmount(); 
+changeItemName(); 
+flushItem(); 
+getItemData(by refrence); 
+getItemPrice(); 
+getItemAmount(); 
+getItemDepartment(); 
+getDepartmentSize(); 
+increaseDepartment(); 
+decreaseDepartment(); 
+swapItems(); 
+
+
+*** Manager logic :- 
+
+1. makeEmployeeList(); 
+- creates the employeelist.txt
+-
+
+2. Manipulating employeelist.txt
+addEmployee(); 
+kickEmployee(); 
+salaryEmployee(); 
+searchEmployee(); 
+changeEmployeeName(); 
+
+
+
 
 
 
